@@ -13,3 +13,16 @@ implementation 'com.google.android.gms:play-services-location:17.0.0'
 <uses-permission android:name="android.permission.INTERNET"/>
 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 ```
+#### Check Permissions
+```java
+public void getCurrentLocation() {
+        //check permission
+        if(ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_FINE_LOCATION)== PackageManager.PERMISSION_GRANTED){
+            //when permission granted
+            getLocation();
+        }else{
+            //when permission denied
+            ActivityCompat.requestPermissions(MainActivity.this,new String[]{Manifest.permission.ACCESS_FINE_LOCATION},111);
+        }
+    }
+```
